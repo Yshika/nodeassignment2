@@ -12,8 +12,8 @@ class CreateDetail extends Component {
             gender: '',
             email: '',
             mobile: '',
-            category: ''
-            // profilepicture:''
+            category: '',
+            profilepicture: ''
         };
     }
 
@@ -29,8 +29,8 @@ class CreateDetail extends Component {
             gender: this.state.gender,
             email: this.state.email,
             mobile: this.state.mobile,
-            category: this.state.category
-            // profilepicture:this.state.prfpic
+            category: this.state.category,
+            profilepicture: this.state.profilepicture
         };
 
         axios
@@ -41,8 +41,8 @@ class CreateDetail extends Component {
                     gender: '',
                     email: '',
                     mobile: '',
-                    category: ''
-                    // profilepicture:''
+                    category: '',
+                    profilepicture: ''
 
                 })
                 this.props.history.push('/');
@@ -72,7 +72,7 @@ class CreateDetail extends Component {
                                 Create new Profile
                             </p>
 
-                            <form noValidate onSubmit={this.onSubmit}>
+                            <form noValidate onSubmit={this.onSubmit} encType="multipart/form-data">
                                 <div className="form-group">
                                     <input
                                         type="text"
@@ -131,19 +131,18 @@ class CreateDetail extends Component {
                                         onChange={this.onChange}
                                     />
                                 </div>
-                                {/* <br />
+                                <br />
 
                                 <div className="form-group">
                                     <input
-                                        type="text"
+                                        type="file"
                                         className="form-control"
                                         name="profilepicture"
-                                        placeholder="Name"
                                         value={this.state.profilepicture}
-                                        onChange={this.onChange} 
-                                        />
+                                        onChange={this.onChange}
+                                    />
                                 </div>
-                                <br /> */}
+                                <br />
 
                                 <input
                                     type="submit"

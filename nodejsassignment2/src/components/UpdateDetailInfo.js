@@ -11,8 +11,8 @@ class UpdateDetailInfo extends Component {
             gender: '',
             email: '',
             mobile: '',
-            category: ''
-            // profilepicture:''
+            category: '',
+            profilepicture: ''
         };
     }
 
@@ -27,8 +27,8 @@ class UpdateDetailInfo extends Component {
                     gender: res.data.gender,
                     email: res.data.email,
                     mobile: res.data.mobile,
-                    category: res.data.category
-                    // profilepicture:res.data.prfpic
+                    category: res.data.category,
+                    profilepicture: res.data.prfpic
 
                 })
             })
@@ -49,8 +49,8 @@ class UpdateDetailInfo extends Component {
             gender: this.state.gender,
             email: this.state.email,
             mobile: this.state.mobile,
-            category: this.state.category
-            // profilepicture:this.state.prfpic
+            category: this.state.category,
+            profilepicture: this.state.profilepicture
         };
 
         axios
@@ -84,7 +84,7 @@ class UpdateDetailInfo extends Component {
                     </div>
 
                     <div className="col-md-8 m-auto">
-                        <form noValidate onSubmit={this.onSubmit}>
+                        <form noValidate onSubmit={this.onSubmit} encType="multipart/form-data">
                             <div className='form-group'>
                                 <label htmlFor="name">Name</label>
                                 <input
@@ -96,7 +96,6 @@ class UpdateDetailInfo extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
-                            <br />
 
                             <div className='form-group'>
                                 <label htmlFor="gender">Gender</label>
@@ -145,17 +144,16 @@ class UpdateDetailInfo extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
-                            {/* <div className='form-group'>
+                            <div className='form-group'>
                                 <label htmlFor="profilepicture">Profile Picture</label>
                                 <input
-                                    type='text'
-                                    placeholder='profilepicture of this Book'
+                                    type='file'
                                     name='profilepicture'
                                     className='form-control'
                                     value={this.state.profilepicture}
                                     onChange={this.onChange}
                                 />
-                            </div> */}
+                            </div>
 
                             <button type="submit"
                                 className="btn btn-outline-info btn-lg btn-block">

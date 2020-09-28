@@ -1,7 +1,21 @@
 const express = require('express');
+const multer = require('multer');
 const router = express.Router();
 
 const Details = require('../../models/Details');
+
+router.use(express.static("../../assests"))
+
+var Storage = multer.diskStorage({
+    destination: '../../assests',
+    filename: (req, res, cb) => {
+        cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
+    }
+})
+
+var upload = multer({
+    storage: Storage
+}).single('profilepicture')
 
 router.get('/test', (req, res) => res.send('Details route testing'));
 
@@ -19,7 +33,7 @@ router.get('/:id', (req, res) => {
 
 })
 
-router.post('/', (req, res) => {
+router.post('/', upload, (req, res) => {
     Details.create(req.body)
         .then(details => res.json({ msg: 'Details added successfully' }))
         .catch(err => res.status(400).json({ error: 'Unable to add this Details' }));

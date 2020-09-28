@@ -20,10 +20,10 @@ const DetailSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true
+    },
+    profilepicture: {
+        type: String,
+        required: true
     }
-    // profilepicture: {
-    //     type: Object,
-    //     required: true
-    // }
 })
 module.exports = Details = mongoose.model('details', DetailSchema);
