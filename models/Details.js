@@ -21,7 +21,11 @@ const DetailSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    profilepicture: {
+    // profilepicture: {
+    //     type: Object,
+    //     required: true
+    // },
+    filename: {
         type: String,
         required: true
     }

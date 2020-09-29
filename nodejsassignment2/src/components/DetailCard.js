@@ -4,10 +4,12 @@ import '../App.css';
 
 const DetailCard = (props) => {
     const detail = props.detail;
+    // console.log(detail.filename);
+    const img = require(`../../../assests/${detail.filename}`)
 
     return (
         <div className="card-container">
-            <img src="https://www.iconfinder.com/data/icons/female-avatars-vol-1/256/female-portrait-avatar-profile-woman-sexy-afro-2-512.png" height="200px" alt="ProfilePicture" />
+            <img src={img} height="200px" alt="ProfilePicture" />
             <div className="desc">
                 <h2>
                     <Link to={`/show-details/${detail._id}`} style={{ color: "lightblue" }}>
