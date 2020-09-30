@@ -11,13 +11,11 @@ class UpdateDetailInfo extends Component {
             gender: '',
             email: '',
             mobile: '',
-            category: '',
-            profilepicture: ''
+            category: ''
         };
     }
 
     componentDidMount() {
-        console.log("Print id: " + this.props.match.params.id);
         axios
             .get('http://localhost:8082/api/details/' + this.props.match.params.id)
             .then(res => {
@@ -27,9 +25,7 @@ class UpdateDetailInfo extends Component {
                     gender: res.data.gender,
                     email: res.data.email,
                     mobile: res.data.mobile,
-                    category: res.data.category,
-                    profilepicture: res.data.prfpic
-
+                    category: res.data.category
                 })
             })
             .catch(err => {
@@ -49,8 +45,7 @@ class UpdateDetailInfo extends Component {
             gender: this.state.gender,
             email: this.state.email,
             mobile: this.state.mobile,
-            category: this.state.category,
-            profilepicture: this.state.profilepicture
+            category: this.state.category
         };
 
         axios
@@ -94,19 +89,53 @@ class UpdateDetailInfo extends Component {
                                     className='form-control'
                                     value={this.state.name}
                                     onChange={this.onChange}
+                                    pattern='/^[a-zA-Z][a-zA-Z ]*$/'
+                                    required
                                 />
                             </div>
 
-                            <div className='form-group'>
-                                <label htmlFor="gender">Gender</label>
-                                <input
-                                    type='text'
-                                    placeholder='Female'
-                                    name='gender'
-                                    className='form-control'
-                                    value={this.state.gender}
-                                    onChange={this.onChange}
-                                />
+                            <div className="form-group">
+
+                                <label htmlFor="gender">Gender</label><br />
+                                <label className="radio-inline mr-4">
+                                    <input
+                                        className="mr-2"
+                                        type="radio"
+                                        name="gender"
+                                        value="Male"
+                                        onChange={this.onChange}
+                                        checked={this.state.gender === "Male"}
+                                        required
+                                    />
+                                        Male
+                                    </label>
+
+                                <label className="radio-inline mr-4">
+                                    <input
+                                        className="mr-2"
+                                        type="radio"
+                                        name="gender"
+                                        value="Female"
+                                        onChange={this.onChange}
+                                        checked={this.state.gender === "Female"}
+                                        required
+                                    />
+                                        Female
+                                    </label>
+
+                                <label className="radio-inline">
+                                    <input
+                                        className="mr-2"
+                                        type="radio"
+                                        name="gender"
+                                        value="Other"
+                                        onChange={this.onChange}
+                                        checked={this.state.gender === "Other"}
+                                        required
+                                    />
+                                        Other
+                                    </label>
+
                             </div>
 
                             <div className='form-group'>
@@ -118,6 +147,8 @@ class UpdateDetailInfo extends Component {
                                     className='form-control'
                                     value={this.state.email}
                                     onChange={this.onChange}
+                                    pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/"
+                                    required
                                 />
                             </div>
 
@@ -130,21 +161,27 @@ class UpdateDetailInfo extends Component {
                                     className='form-control'
                                     value={this.state.mobile}
                                     onChange={this.onChange}
+                                    required
+                                    pattern="/^[6-9]\d{9}$/"
                                 />
                             </div>
 
                             <div className='form-group'>
                                 <label htmlFor="category">Category</label>
-                                <input
-                                    type='text'
-                                    placeholder='General'
-                                    name='category'
-                                    className='form-control'
-                                    value={this.state.category}
-                                    onChange={this.onChange}
-                                />
+
+                                <select className="form-control" name="category" required onChange={this.onChange} id="category">
+                                    <option value="" disabled>Category</option>
+                                    <option value="General"
+                                        defaultValue={this.state.category === "General"}>General</option>
+                                    <option value="SC/ST"
+                                        defaultValue={this.state.category === "SC/ST"}>SC/ST</option>
+                                    <option value="OBC"
+                                        defaultValue={this.state.category === "OBC"}>OBC</option>
+                                </select>
+
+
                             </div>
-                            <div className='form-group'>
+                            {/* <div className='form-group'>
                                 <label htmlFor="profilepicture">Profile Picture</label>
                                 <input
                                     type='file'
@@ -153,7 +190,7 @@ class UpdateDetailInfo extends Component {
                                     value={this.state.profilepicture}
                                     onChange={this.onChange}
                                 />
-                            </div>
+                            </div> */}
 
                             <button type="submit"
                                 className="btn btn-outline-info btn-lg btn-block">

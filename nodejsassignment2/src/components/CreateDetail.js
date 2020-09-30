@@ -22,30 +22,19 @@ class CreateDetail extends Component {
     };
 
     onFileChange = e => {
-        console.log(e.target.files[0]);
+        // console.log(e.target.files[0]);
         this.setState({ profilepicture: e.target.files[0] });
     }
     onSubmit = e => {
         e.preventDefault();
         var formData = new FormData();
 
-        // Update the formData object
         formData.append("file", this.state.profilepicture);
         formData.append("name", this.state.name);
         formData.append("category", this.state.category);
         formData.append("gender", this.state.gender);
         formData.append("email", this.state.email);
         formData.append("mobile", this.state.mobile);
-        // Details of the uploaded file
-
-        // const data = {
-        //     name: this.state.name,
-        //     gender: this.state.gender,
-        //     email: this.state.email,
-        //     mobile: this.state.mobile,
-        //     category: this.state.category,
-        //     profilepicture: this.state.profilepicture
-        // };
 
         axios
             .post('http://localhost:8082/api/details', formData)
@@ -60,11 +49,12 @@ class CreateDetail extends Component {
 
                 })
                 this.props.history.push('/');
+                alert('Details have been Submitted Sucessfully')
             })
             .catch(err => {
                 console.log("Error in CreateDetail! #####", err);
             })
-        alert('Details have been Submitted Sucessfully')
+
     }
 
     render() {
@@ -75,7 +65,7 @@ class CreateDetail extends Component {
                         <div className="col-md-8 m-auto">
                             <br />
                             <Link to="/" className="btn btn-outline-warning float-left">
-                                Show Profiles List
+                                Show Profile's List
                             </Link>
                         </div>
 
@@ -87,7 +77,7 @@ class CreateDetail extends Component {
                                 Create new Profile
                             </p>
 
-                            <form noValidate onSubmit={this.onSubmit} encType="multipart/form-data">
+                            <form onSubmit={this.onSubmit} encType="multipart/form-data">
                                 <div className="form-group">
                                     <input
                                         type="text"
@@ -96,6 +86,8 @@ class CreateDetail extends Component {
                                         placeholder="Name"
                                         value={this.state.name}
                                         onChange={this.onChange}
+                                        pattern='/^[a-zA-Z][a-zA-Z ]*$/'
+                                        required
                                     />
                                 </div>
 
@@ -108,6 +100,7 @@ class CreateDetail extends Component {
                                             name="gender"
                                             value="Male"
                                             onChange={this.onChange}
+                                            required
                                         />
                                         Male
                                     </label>
@@ -119,6 +112,7 @@ class CreateDetail extends Component {
                                             name="gender"
                                             value="Female"
                                             onChange={this.onChange}
+                                            required
                                         />
                                         Female
                                     </label>
@@ -130,10 +124,10 @@ class CreateDetail extends Component {
                                             name="gender"
                                             value="Other"
                                             onChange={this.onChange}
+                                            required
                                         />
                                         Other
                                     </label>
-
                                 </div>
 
                                 <div className="form-group">
@@ -144,6 +138,8 @@ class CreateDetail extends Component {
                                         placeholder="Email"
                                         value={this.state.email}
                                         onChange={this.onChange}
+                                        pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/"
+                                        required
                                     />
                                 </div>
                                 <br />
@@ -156,26 +152,20 @@ class CreateDetail extends Component {
                                         placeholder="Mobile Number"
                                         value={this.state.mobile}
                                         onChange={this.onChange}
+                                        required
+                                        pattern="/^[6-9]\d{9}$/"
                                     />
                                 </div>
                                 <br />
 
                                 <div className="form-group">
-                                    <select className="form-control" name="category" onChange={this.onChange} id="category">
-                                        <option value="" selected disabled>Category</option>
+                                    <select className="form-control" name="category" required onChange={this.onChange} id="category">
+                                        <option value="" defaultValue disabled>Category</option>
                                         <option value="General">General</option>
                                         <option value="SC/ST">SC/ST</option>
                                         <option value="OBC">OBC</option>
                                     </select>
 
-                                    {/* <input
-                                        type="text"
-                                        className="form-control"
-                                        name="category"
-                                        placeholder="Category"
-                                        value={this.state.category}
-                                        onChange={this.onChange}
-                                    /> */}
                                 </div>
                                 <br />
 
@@ -186,6 +176,7 @@ class CreateDetail extends Component {
                                         name="file"
                                         onChange={this.onFileChange}
                                         accept='image/*'
+                                        required
                                     />
                                 </div>
 
