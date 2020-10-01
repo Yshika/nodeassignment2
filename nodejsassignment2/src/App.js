@@ -7,6 +7,8 @@ import CreateDetail from './components/CreateDetail';
 import ShowDetailList from './components/ShowDetailList';
 import ShowDetailDetails from './components/ShowDetailDetails';
 import UpdateDetailInfo from './components/UpdateDetailInfo';
+import UpdatePhoto from './components/UpdatePhoto';
+
 class App extends Component {
   render() {
     return (
@@ -14,6 +16,7 @@ class App extends Component {
         <div>
           <Route exact path='/' component={ShowDetailList} />
           <Route path='/create-details' component={CreateDetail} />
+          <Route path='/edit-photo/:id' component={UpdatePhoto} />
           <Route path='/edit-details/:id' component={UpdateDetailInfo} />
           <Route path='/show-details/:id' component={ShowDetailDetails} />
         </div>

@@ -69,7 +69,7 @@ class CreateDetail extends Component {
                             </Link>
                         </div>
 
-                        <div className="col-md-8 m-auto">
+                        <div className="col-md-8 m-auto desc">
                             <h1 className="display-4 text-center">
                                 Add Profile
                             </h1>
@@ -86,7 +86,7 @@ class CreateDetail extends Component {
                                         placeholder="Name"
                                         value={this.state.name}
                                         onChange={this.onChange}
-                                        pattern='/^[a-zA-Z][a-zA-Z ]*$/'
+                                        // pattern='/^[a-zA-Z][a-zA-Z ]$/'
                                         required
                                     />
                                 </div>
@@ -146,21 +146,21 @@ class CreateDetail extends Component {
 
                                 <div className="form-group">
                                     <input
-                                        type="text"
+                                        type="tel"
                                         className="form-control"
                                         name="mobile"
                                         placeholder="Mobile Number"
                                         value={this.state.mobile}
                                         onChange={this.onChange}
                                         required
-                                        pattern="/^[6-9]\d{9}$/"
+                                    // pattern="/^[6-9]{1}[0-9]{9}$/"
                                     />
                                 </div>
                                 <br />
 
                                 <div className="form-group">
                                     <select className="form-control" name="category" required onChange={this.onChange} id="category">
-                                        <option value="" defaultValue disabled>Category</option>
+                                        <option value="" selected disabled>Category</option>
                                         <option value="General">General</option>
                                         <option value="SC/ST">SC/ST</option>
                                         <option value="OBC">OBC</option>

@@ -39,6 +39,16 @@
   color: white;
 }
 
+.display-4 {
+  font-size: 8vh;
+  color: #ffeadb;
+}
+
+.lead {
+  font-size: 4vh;
+  color: #ffeadb;
+}
+
 /* DetailList Styles */
 .list {
   display: flex;
@@ -51,6 +61,7 @@
   grid-gap: 2em;
 }
 
+/* Detail Card Styles */
 .card-container {
   width: 270px;
   border: 1px solid rgba(0, 0, 0.125);
@@ -58,6 +69,40 @@
   border-radius: 5px;
   overflow: hidden;
   text-align: center;
+  position: relative;
+}
+
+.image-container .image {
+  opacity: 1;
+  display: block;
+  width: 80%;
+  margin: 20px auto 0;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.image-container image:hover {
+  opacity: 0.5;
+}
+
+.image-container .middle {
+  transition: 0.3s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.image-container:hover .middle {
+  opacity: 1;
+}
+.image-container .text {
+  background-color: #aeddd5;
+  color: #2c3e50;
+  font-size: 0.8em;
+  padding: 16px 32px;
 }
 
 .desc {

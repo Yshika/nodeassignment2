@@ -9,7 +9,14 @@ const DetailCard = (props) => {
 
     return (
         <div className="card-container">
-            <img src={img} height="200px" alt="ProfilePicture" />
+            <div className="image-container">
+                <Link to={`/edit-photo/${detail._id}`}>
+                    <img src={img} className="image" height="200px" alt="ProfilePicture" />
+                    <div className="middle">
+                        <div className="text">Update Me!</div>
+                    </div>
+                </Link>
+            </div>
             <div className="desc">
                 <h2>
                     <Link to={`/show-details/${detail._id}`} style={{ color: "lightblue" }}>
@@ -19,7 +26,7 @@ const DetailCard = (props) => {
                 <h3>{detail.email}</h3>
                 <p>{detail.mobile}</p>
             </div>
-        </div>
+        </div >
     )
 };
 

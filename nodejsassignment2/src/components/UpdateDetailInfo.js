@@ -67,7 +67,7 @@ class UpdateDetailInfo extends Component {
                         <div className="col-md-8 m-auto">
                             <br />
                             <Link to="/" className="btn btn-outline-warning float-left">
-                                Show Profile List
+                                Show Profile's List
                             </Link>
                         </div>
                         <div className="col-md-8 m-auto">

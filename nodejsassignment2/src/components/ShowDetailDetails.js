@@ -43,14 +43,6 @@ class showDetailDetails extends Component {
         const detail = this.state.detail;
         let DetailItem = <div>
             <table className="table table-hover table-dark">
-                {/* <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead> */}
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
@@ -89,7 +81,7 @@ class showDetailDetails extends Component {
                         <div className="col-md-10 m-auto">
                             <br /> <br />
                             <Link to="/" className="btn btn-outline-warning float-left">
-                                Show Profile List
+                                Show Profile's List
               </Link>
                         </div>
                         <br />

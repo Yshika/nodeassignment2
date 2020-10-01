@@ -68,6 +68,18 @@ router.put('/:id', (req, res) => {
         );
 });
 
+router.patch('/:id', upload.single("file"), (req, res) => {
+    // console.log(req.file);
+    const data = {
+        filename: `${date_store}`
+    }
+    Details.findByIdAndUpdate(req.params.id, data)
+        .then(details => res.json({ msg: 'Updated successfully' }))
+        .catch(err =>
+            res.status(400).json({ error: 'Unable to update the Database' })
+        );
+})
+
 router.delete('/:id', (req, res) => {
     Details.findByIdAndRemove(req.params.id, req.body)
         .then(details => res.json({ mgs: 'Details entry deleted successfully' }))
