@@ -79,7 +79,7 @@ class UpdateDetailInfo extends Component {
                     </div>
 
                     <div className="col-md-8 m-auto">
-                        <form noValidate onSubmit={this.onSubmit} encType="multipart/form-data">
+                        <form onSubmit={this.onSubmit} encType="multipart/form-data">
                             <div className='form-group'>
                                 <label htmlFor="name">Name</label>
                                 <input
@@ -88,8 +88,9 @@ class UpdateDetailInfo extends Component {
                                     name='name'
                                     className='form-control'
                                     value={this.state.name}
+                                    pattern='[a-zA-Z]+[a-zA-Z ]*$'
+                                    title="Enter Full Name"
                                     onChange={this.onChange}
-                                    pattern='/^[a-zA-Z][a-zA-Z ]*$/'
                                     required
                                 />
                             </div>
@@ -146,8 +147,8 @@ class UpdateDetailInfo extends Component {
                                     name='email'
                                     className='form-control'
                                     value={this.state.email}
+                                    pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
                                     onChange={this.onChange}
-                                    pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/"
                                     required
                                 />
                             </div>
@@ -160,9 +161,10 @@ class UpdateDetailInfo extends Component {
                                     name='mobile'
                                     className='form-control'
                                     value={this.state.mobile}
+                                    pattern="^[6-9]\d{9}$"
+                                    title="Enter Valid Mobile Number"
                                     onChange={this.onChange}
                                     required
-                                    pattern="/^[6-9]\d{9}$/"
                                 />
                             </div>
 
@@ -178,24 +180,12 @@ class UpdateDetailInfo extends Component {
                                     <option value="OBC"
                                         defaultValue={this.state.category === "OBC"}>OBC</option>
                                 </select>
-
-
                             </div>
-                            {/* <div className='form-group'>
-                                <label htmlFor="profilepicture">Profile Picture</label>
-                                <input
-                                    type='file'
-                                    name='profilepicture'
-                                    className='form-control'
-                                    value={this.state.profilepicture}
-                                    onChange={this.onChange}
-                                />
-                            </div> */}
 
                             <button type="submit"
                                 className="btn btn-outline-info btn-lg btn-block">
                                 Update Profile
-                                </button>
+                            </button>
                         </form>
                     </div>
 

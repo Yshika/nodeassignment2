@@ -49,7 +49,6 @@ class CreateDetail extends Component {
 
                 })
                 this.props.history.push('/');
-                alert('Details have been Submitted Sucessfully')
             })
             .catch(err => {
                 console.log("Error in CreateDetail! #####", err);
@@ -85,8 +84,9 @@ class CreateDetail extends Component {
                                         name="name"
                                         placeholder="Name"
                                         value={this.state.name}
+                                        pattern='[a-zA-Z]+[a-zA-Z ]{2,30}'
+                                        title="Please enter Full Name"
                                         onChange={this.onChange}
-                                        // pattern='/^[a-zA-Z][a-zA-Z ]$/'
                                         required
                                     />
                                 </div>
@@ -137,8 +137,8 @@ class CreateDetail extends Component {
                                         name="email"
                                         placeholder="Email"
                                         value={this.state.email}
+                                        pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
                                         onChange={this.onChange}
-                                        pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/"
                                         required
                                     />
                                 </div>
@@ -153,7 +153,8 @@ class CreateDetail extends Component {
                                         value={this.state.mobile}
                                         onChange={this.onChange}
                                         required
-                                    // pattern="/^[6-9]{1}[0-9]{9}$/"
+                                        pattern="^[6-9]{1}[0-9]{9}$"
+                                        title="Enter Valid Mobile Number"
                                     />
                                 </div>
                                 <br />

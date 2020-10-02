@@ -5,7 +5,7 @@ import '../App.css';
 const DetailCard = (props) => {
     const detail = props.detail;
     // console.log(detail.filename);
-    const img = require(`../../../assests/${detail.filename}`)
+    const img = require(`../../../backend/assests/${detail.filename}`)
 
     return (
         <div className="card-container">
