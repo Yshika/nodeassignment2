@@ -22,7 +22,7 @@ class showDetailDetails extends Component {
                 })
             })
             .catch(err => {
-                console.log("Error from ShowBookDetails#####", err);
+                console.log("Error from ShowDetailDetails#####", err);
             })
     };
 
@@ -33,7 +33,7 @@ class showDetailDetails extends Component {
                 this.props.history.push("/");
             })
             .catch(err => {
-                console.log("Error form ShowBookDetails_deleteClick#####", err);
+                console.log("Error form ShowDetailDetails_deleteClick#####", err);
             })
     };
 
@@ -116,9 +116,6 @@ class showDetailDetails extends Component {
                         </div>
 
                     </div>
-                    {/* <br />
-            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit Book</button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Book</button> */}
 
                 </div>
             </div>

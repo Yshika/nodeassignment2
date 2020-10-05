@@ -83,7 +83,7 @@ router.patch('/:id', upload.single("file"), (req, res) => {
 router.delete('/:id', (req, res) => {
     Details.findByIdAndRemove(req.params.id, req.body)
         .then(details => res.json({ mgs: 'Details entry deleted successfully' }))
-        .catch(err => res.status(404).json({ error: 'No such a book' }));
+        .catch(err => res.status(404).json({ error: 'No such a Profile' }));
 });
 
 module.exports = router;
